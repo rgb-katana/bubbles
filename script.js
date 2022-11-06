@@ -74,7 +74,6 @@ controls.addEventListener('click', (e) => {
   timer.textContent = `00:${time}`;
   if (e.target.classList.contains('start')) {
     changeColor = setInterval(function () {
-      playgrounds.style.backgroundColor = randomColor();
       spawnCircle();
       time = (--time).toString().padStart(2, '0');
       timer.textContent = `00:${time}`;
@@ -85,7 +84,7 @@ controls.addEventListener('click', (e) => {
         document.querySelector('.score').textContent = hits;
         document.querySelector('.total').textContent = totalBubbles;
       }
-    }, 1000);
+    }, 500);
   }
 });
 
@@ -100,5 +99,6 @@ playgrounds.addEventListener('click', function (e) {
   if (e.target.classList.contains('bubble')) {
     hits++;
     e.target.remove();
+    playgrounds.style.backgroundColor = randomColor();
   }
 });

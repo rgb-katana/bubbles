@@ -47,7 +47,7 @@ h1 {
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  animation: twoTimes 2s ease 0s 2 alternate;
+  animation: twoTimes 1s ease 0s 2 alternate;
   animation-fill-mode: forwards;
 }
 
