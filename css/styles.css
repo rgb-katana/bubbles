@@ -40,10 +40,11 @@ h1 {
 
 .bubble {
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 0px;
+  height: 0px;
   border-radius: 50%;
   animation: twoTimes 2s ease 0s 2 alternate;
+  animation-fill-mode: forwards;
 }
 
 .hovered {
@@ -61,11 +62,14 @@ h1 {
 
 @keyframes twoTimes {
   from {
-    width: 10px;
-    height: 10px;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    display: none;
   }
   to {
     width: 50px;
     height: 50px;
+    opacity: 100;
   }
 }
