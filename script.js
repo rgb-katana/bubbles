@@ -12,12 +12,12 @@
 
 ///////////////////////////////////////////////////////////
 // Variable declarations.
+const timer = document.querySelector('.timer');
 const playgrounds = document.querySelector('.playgrounds');
 const controls = document.querySelector('.controls');
 let changeColor;
-let playState = false;
 let totalBubbles = 0;
-const bubbles = [];
+let hits = 0;
 
 ///////////////////////////////////////////////////////////
 // Functions
@@ -51,7 +51,6 @@ function spawnCircle() {
   bubble.style.position = 'absolute';
   bubble.style.top = `${yCoord()}px`;
   bubble.style.left = `${xCoord()}px`;
-  bubbles.push(bubble);
   return bubble;
 }
 
@@ -71,19 +70,35 @@ controls.addEventListener('mouseout', (e) => {
 });
 
 controls.addEventListener('click', (e) => {
+  let time = 30;
+  timer.textContent = `00:${time}`;
   if (e.target.classList.contains('start')) {
     changeColor = setInterval(function () {
       playgrounds.style.backgroundColor = randomColor();
       spawnCircle();
+      time = (--time).toString().padStart(2, '0');
+      timer.textContent = `00:${time}`;
+      if (time === '00') {
+        clearInterval(changeColor);
+        document.querySelector('.game').classList.add('hidden');
+        document.querySelector('.results').classList.remove('hidden');
+        document.querySelector('.score').textContent = hits;
+        document.querySelector('.total').textContent = totalBubbles;
+      }
     }, 1000);
-    playState = true;
   }
 });
 
 controls.addEventListener('click', (e) => {
   if (e.target.classList.contains('stop')) {
     clearInterval(changeColor);
-    clearInterval(bubbleDeleter);
-    playState = false;
+    alert('Можете выдержать 30 секунд?');
+  }
+});
+
+playgrounds.addEventListener('click', function (e) {
+  if (e.target.classList.contains('bubble')) {
+    hits++;
+    e.target.remove();
   }
 });

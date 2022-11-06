@@ -8,15 +8,23 @@
     <title>Untitled Project</title>
   </head>
   <body>
-    <header>
-      <h1>FAST AIMER 3000</h1>
-      <div class="timer">01:00</div>
-    </header>
-    <div class="playgrounds"></div>
-    <div class="controls">
-      <button class="button start">START AIMING</button>
-      <button class="button stop">STOP AIMING</button>
+    <div class="game">
+      <header>
+        <h1>FAST AIMER 3000</h1>
+        <div class="timer">00:30</div>
+      </header>
+      <div class="playgrounds"></div>
+      <div class="controls">
+        <button class="button start">START AIMING</button>
+        <button class="button stop">STOP AIMING</button>
+      </div>
+      <script src="./script.js"></script>
     </div>
-    <script src="./script.js"></script>
+    <div class="results hidden">
+      <h2>ВЫ УБИЛИ</h2>
+      <h1 class="score">30</h1>
+      <h2>КРУЖОЧКОВ ИЗ</h2>
+      <h1 class="total">50</h1>
+    </div>
   </body>
 </html>
