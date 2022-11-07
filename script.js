@@ -71,6 +71,8 @@ controls.addEventListener('mouseout', (e) => {
 });
 
 function play(e) {
+  clearInterval(changeColor);
+  clearInterval(timerExpire);
   playgrounds.innerHTML = '';
   document.querySelector('.results').classList.add('hidden');
   document.querySelector('.game').classList.remove('hidden');
