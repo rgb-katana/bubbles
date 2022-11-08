@@ -95,7 +95,7 @@ function play(e) {
         document.querySelector('.game').classList.add('hidden');
         document.querySelector('.results').classList.remove('hidden');
         document.querySelector('.score').textContent = hits;
-        document.querySelector('.total').textContent = totalBubbles - 2;
+        document.querySelector('.total').textContent = totalBubbles;
         const retry = document.querySelector('.retry');
         retry.addEventListener('mouseover', (e) => {
           e.target.classList.add('hovered');
