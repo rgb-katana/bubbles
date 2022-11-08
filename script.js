@@ -35,13 +35,12 @@ function randomColor() {
 function spawnCircle() {
   const offsetTopPG = playgrounds.offsetTop;
   const offsetLeftPG = playgrounds.offsetLeft;
-  const offsetRightPG = window.innerWidth - offsetLeftPG;
-  const offsetBotPG = window.innerHeight - offsetTopPG;
   const yCoord = function () {
-    return Math.trunc(Math.random() * (offsetBotPG - offsetTopPG - 130));
+    return Math.trunc(Math.random() * (playgrounds.offsetHeight - 50));
   };
+  console.log(yCoord());
   const xCoord = function () {
-    return Math.trunc(Math.random() * (offsetRightPG - offsetLeftPG - 70));
+    return Math.trunc(Math.random() * (playgrounds.offsetWidth - 50));
   };
   totalBubbles += 1;
   playgrounds.insertAdjacentHTML(
@@ -96,7 +95,7 @@ function play(e) {
         document.querySelector('.game').classList.add('hidden');
         document.querySelector('.results').classList.remove('hidden');
         document.querySelector('.score').textContent = hits;
-        document.querySelector('.total').textContent = totalBubbles;
+        document.querySelector('.total').textContent = totalBubbles - 2;
         const retry = document.querySelector('.retry');
         retry.addEventListener('mouseover', (e) => {
           e.target.classList.add('hovered');
